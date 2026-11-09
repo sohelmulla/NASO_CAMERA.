@@ -1,6 +1,6 @@
 {
-  "name": "NASO Camera.",
-  "description": "NASO Camera AI 4K Pro with intelligent scene enhancer, manual pro controls, portrait depth bokeh, night mode, and smart gallery.",
+  "name": "NASO Camera",
+  "description": "NASO Camera - Professional Native Android Camera App with CameraX, Camera2 Interop, Pro Mode, Real MediaStore 4K Capture, Video Recording, Smart Gallery, and Computational Photo Studio.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

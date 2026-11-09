@@ -1,12 +1,20 @@
 package com.example.model
 
-import com.example.R
+import android.net.Uri
+
+enum class NavDestination(val label: String) {
+    CAMERA("Camera"),
+    PRO_MODE("Pro Mode"),
+    AI_STUDIO("AI Studio"),
+    GALLERY("Gallery"),
+    SETTINGS("Settings")
+}
 
 enum class CameraMode(val title: String, val badge: String) {
     AI_AUTO("AI AUTO", "AI 4K"),
     PORTRAIT("PORTRAIT", "BOKEH"),
     NIGHT("NIGHT MODE", "NIGHT HDR"),
-    PRO("PRO CAMERA", "RAW 4K"),
+    PRO("PRO CAMERA", "MANUAL"),
     VIDEO("4K VIDEO", "60 FPS")
 }
 
@@ -39,11 +47,11 @@ enum class GridType(val label: String) {
 
 enum class PhotoFilter(val displayName: String, val description: String) {
     ORIGINAL("Original", "Natural camera sensor data"),
-    AI_VIBRANT("AI Vibrant Pro", "+25% Dynamic range & enhanced vibrancy"),
+    AI_VIBRANT("AI Vibrant Pro", "+25% Dynamic range & enhanced clarity"),
     NIGHT_BRIGHT("Night Clarity", "Multi-frame low-light shadow brightening"),
-    CINEMATIC_GOLD("Cinematic Gold", "Warm gold highlights & rich shadows"),
+    CINEMATIC_GOLD("Cinematic Gold", "Warm gold highlights & deep rich shadows"),
     STUDIO_BOKEH("Studio Bokeh", "f/1.4 Creamy background blur simulation"),
-    NOIR_DRAMA("Noir B&W", "High-contrast monochrome pro tone")
+    NOIR_DRAMA("Noir B&W", "High-contrast monochrome dynamic range")
 }
 
 data class ProSettings(
@@ -58,11 +66,13 @@ data class ProSettings(
     val watermarkEnabled: Boolean = true,
     val shutterSound: Boolean = true,
     val resolution4K: Boolean = true,
-    val hdrEnabled: Boolean = true
+    val hdrEnabled: Boolean = true,
+    val audioEnabled: Boolean = true
 )
 
 data class CapturedMedia(
     val id: String,
+    val mediaUri: Uri? = null,
     val localFilePath: String? = null,
     val drawableResId: Int? = null,
     val mode: CameraMode,
@@ -75,5 +85,7 @@ data class CapturedMedia(
     val aiScene: String = "AI Enhanced",
     val filterApplied: PhotoFilter = PhotoFilter.AI_VIBRANT,
     val isVideo: Boolean = false,
-    val videoDurationSec: Int = 0
+    val videoDurationSec: Int = 0,
+    val isFavorite: Boolean = false,
+    val fileSizeBytes: Long = 0L
 )
